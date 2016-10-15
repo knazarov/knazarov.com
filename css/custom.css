@@ -12,20 +12,12 @@
     font-weight: 200;
 }
 
-
-.border-between > [class*='col-']:before {
-    background: #1c1e22;
-    bottom: 0;
-    content: " ";
-    left: 0;
-    position: absolute;
-    width: 1px;
-    top: 0;
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
 }
-.border-between > [class*='col-']:first-child:before {
-    display: none;
-}
-
 
 .social-links {
     margin-top: 3em;
