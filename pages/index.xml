@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on Konstantin Nazarov</title>
-    <link>http://kn.am/pages/</link>
+    <link>https://kn.am/pages/</link>
     <description>Recent content in Pages on Konstantin Nazarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Konstantin Nazarov</copyright>
     
-	<atom:link href="http://kn.am/pages/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kn.am/pages/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About me</title>
-      <link>http://kn.am/pages/about/</link>
+      <link>https://kn.am/pages/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://kn.am/pages/about/</guid>
+      <guid>https://kn.am/pages/about/</guid>
       <description>Hi,
 My name is Konstantin. I&amp;rsquo;m a software engineering professional with 10 years of experience. During my career I worked with a diverse set of technologies, ranging from RTOS kernel development to highly loaded web services.
 Currently work at a database startup Tarantool where I manage a team building enterprise solutions based off our own database and application server.
@@ -26,19 +26,19 @@ For individuals I offer productivity and goal setting coaching.</description>
     
     <item>
       <title>Contact</title>
-      <link>http://kn.am/pages/contact/</link>
+      <link>https://kn.am/pages/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://kn.am/pages/contact/</guid>
+      <guid>https://kn.am/pages/contact/</guid>
       <description>If you want to contact me, the best way to do so is by email: mail.kn.am. There is a high chance you&amp;rsquo;ll get an answer within a day or two.</description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>http://kn.am/pages/projects/</link>
+      <link>https://kn.am/pages/projects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://kn.am/pages/projects/</guid>
+      <guid>https://kn.am/pages/projects/</guid>
       <description>Here I&amp;rsquo;ll list projects I completed</description>
     </item>
     

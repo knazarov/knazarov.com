@@ -3,38 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://kn.am/pages/about/</loc>
+    <loc>https://kn.am/pages/about/</loc>
   </url>
   
   <url>
-    <loc>http://kn.am/pages/contact/</loc>
+    <loc>https://kn.am/pages/contact/</loc>
   </url>
   
   <url>
-    <loc>http://kn.am/posts/foo_post/</loc>
+    <loc>https://kn.am/posts/foo_post/</loc>
   </url>
   
   <url>
-    <loc>http://kn.am/</loc>
+    <loc>https://kn.am/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kn.am/pages/</loc>
+    <loc>https://kn.am/pages/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kn.am/posts/</loc>
+    <loc>https://kn.am/posts/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kn.am/pages/projects/</loc>
+    <loc>https://kn.am/pages/projects/</loc>
   </url>
   
   <url>
-    <loc>http://kn.am/tags/</loc>
+    <loc>https://kn.am/tags/</loc>
     <priority>0</priority>
   </url>
   
