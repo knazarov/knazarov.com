@@ -7,17 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Konstantin Nazarov</copyright>
+    <lastBuildDate>Sun, 08 Apr 2018 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://kn.am/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Hello, world</title>
-      <link>https://kn.am/posts/foo_post/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Running Herokuish apps in Docker</title>
+      <link>https://kn.am/posts/herokuish_apps_in_docker/</link>
+      <pubDate>Sun, 08 Apr 2018 00:00:00 +0300</pubDate>
       
-      <guid>https://kn.am/posts/foo_post/</guid>
-      <description></description>
+      <guid>https://kn.am/posts/herokuish_apps_in_docker/</guid>
+      <description>Heroku allows you to build an app, push the code to a git repository and have it automatically deployed to a server. The beauty of this solution is that if you follow certain simple conventions, you don&amp;rsquo;t have to invest any brainpower into the deployment at all.
+Then comes Dokku, which is built on the same principles as Heroku and can serve as a drop-in replacement for it on your own server.</description>
+    </item>
+    
+    <item>
+      <title>Exposing Docker containers to external network</title>
+      <link>https://kn.am/posts/exposing_docker_containers/</link>
+      <pubDate>Sat, 21 May 2016 00:00:00 +0300</pubDate>
+      
+      <guid>https://kn.am/posts/exposing_docker_containers/</guid>
+      <description>If you&amp;rsquo;ve ever tried to assign a routable and externally visible IP address to your Docker containers, you probably know that it&amp;rsquo;s not a trivial task. There are a few posts out there that show a few interesting methods, like this or this or even from the creators of Docker itself.
+I&amp;rsquo;ve been digging for a better method, that will still allow you to use Docker API and don&amp;rsquo;t execute any host-side commands after starting every container.</description>
     </item>
     
   </channel>

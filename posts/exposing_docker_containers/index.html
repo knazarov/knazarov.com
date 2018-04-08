@@ -3,11 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Hello, world &middot; Konstantin Nazarov</title>
-        <meta name="description" content="">
+        <title>Exposing Docker containers to external network &middot; Konstantin Nazarov</title>
+        <meta name="description" content="If you&rsquo;ve ever tried to assign a routable and externally visible IP address to your Docker containers, you probably know that it&rsquo;s not a trivial task. There are a few posts out there that show a few interesting methods, like this or this or even from the creators of Docker itself.
+I&rsquo;ve been digging for a better method, that will still allow you to use Docker API and don&rsquo;t execute any host-side commands after starting every container.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.36.1" />
+        <meta name="generator" content="Hugo 0.38.1" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -97,14 +98,105 @@ ga('send', 'pageview');
 <div class="container">
     <article class="post-container">
         <header class="post-header">
-    <h1 class="post-title">Hello, world</h1>
+    <h1 class="post-title">Exposing Docker containers to external network</h1>
     
 </header>
 
         <div class="post-content clearfix">
     
 
-    
+    <p>If you&rsquo;ve ever tried to assign a routable and externally visible IP
+address to your Docker containers, you probably know that it&rsquo;s not a
+trivial task. There are a few posts out there that show a few
+interesting methods, like <a href="http://blog.oddbit.com/2014/08/11/four-ways-to-connect-a-docker/">this</a> or <a href="http://hicu.be/docker-networking-macvlan-bridge-mode-configuration">this</a> or even <a href="https://github.com/jpetazzo/pipework">from the creators of Docker itself</a>.</p>
+
+<p>I&rsquo;ve been digging for a better method, that will still allow you to
+use Docker API and don&rsquo;t execute any host-side commands after
+starting every container. Fortunately, it turns out that Docker
+doesn&rsquo;t try to recreate a network bridge it uses to connect
+containers together, if the bridge already exists. So you may use it
+like this:</p>
+
+<p>Create a new bridge:</p>
+
+<pre><code class="language-bash">brctl addbr mybridge
+
+ip link set mybridge up
+</code></pre>
+
+<p>Look at the settings of your primary adapter:</p>
+
+<pre><code class="language-bash">ifconfig eth0
+
+eth0: flags=4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt; mtu 1500
+inet 10.211.55.49 netmask 255.255.255.0 broadcast 10.211.55.255
+</code></pre>
+
+<p>See the default route:</p>
+
+<pre><code class="language-bash">ip route
+
+default via 10.211.55.1 dev eth0 proto static metric 100
+</code></pre>
+
+<p>Add eth0 to the bridge:</p>
+
+<pre><code class="language-bash">brctl addif mybridge eth0
+</code></pre>
+
+<p>Configure the bridge:</p>
+
+<pre><code class="language-bash">ip addr del 10.211.55.49/24 dev eth0
+ip addr add 10.211.55.49/24 dev mybridge
+</code></pre>
+
+<p>Set up default route on the bridge:</p>
+
+<pre><code class="language-bash">ip route del default
+ip route add default via 10.211.55.1 dev mybridge
+</code></pre>
+
+<p>Create a new network (replace with the networks relevant to you):</p>
+
+<pre><code class="language-bash">docker network create --driver=bridge --subnet 10.211.55.0/24 --gateway 10.211.55.49 --ip-range 10.211.55.128/25 -o &quot;com.docker.network.bridge.name&quot;=&quot;mybridge&quot; mybridge
+</code></pre>
+
+<p>Where:</p>
+
+<ul>
+<li><code>--subnet</code> should be the same as the network you want to expose containers to (e.g. eth0)</li></li>
+<li><code>--gateway</code> specifies the IP address that will be set on the bridge and through which containers will route traffic. This is <span class="underline">not</span> the external gateway (10.211.55.1). Unfortunately there is no separate setting for the bridge&rsquo;s IP.</li></li>
+<li><code>--ip-range</code> is important to specify so that docker won&rsquo;t automatically allocate addresses that you know will intersect with other hosts on the network, as it assumes total control of the subnet otherwise.</li></li>
+<li>and the <code>com.docker.network.bridge.name</code> option tells docker to not generate a bridge name, and use the provided one.</li>
+</ul>
+
+<p>Then you may start creating containers as usual:</p>
+
+<pre><code class="language-bash">docker run --rm -t -i --net mybridge alpine:3.4 /bin/sh
+
+ifconfig eth0
+
+eth0 Link encap:Ethernet HWaddr 02:42:AC:11:00:02
+inet addr:10.211.55.128 Bcast:0.0.0.0 Mask:255.255.0.0
+
+...
+</code></pre>
+
+<p>and then from outside of your host:</p>
+
+<pre><code class="language-bash">ping 10.211.55.128
+
+PING 10.211.55.128 (10.211.55.128): 56 data bytes
+64 bytes from 10.211.55.128: icmp_seq=0 ttl=64 time=0.393 ms
+64 bytes from 10.211.55.128: icmp_seq=1 ttl=64 time=0.259 ms
+64 bytes from 10.211.55.128: icmp_seq=2 ttl=64 time=0.352 ms
+</code></pre>
+
+<p>That works out of the box, with standard Docker API. You only need
+to create a bridge in advance and set everything up  carefully. You
+may even prefer to use external IPAM system to allocate IPs, and set
+them manually via <code>--ip</code>.</p>
+
 </div>
 
         <footer class="post-footer clearfix">
@@ -112,7 +204,7 @@ ga('send', 'pageview');
 
     <div class="share">
         
-            <a class="icon-twitter" href="https://twitter.com/share?text=Hello%2c%20world&url=https%3a%2f%2fkn.am%2fposts%2ffoo_post%2f"
+            <a class="icon-twitter" href="https://twitter.com/share?text=Exposing%20Docker%20containers%20to%20external%20network&url=https%3a%2f%2fkn.am%2fposts%2fexposing_docker_containers%2f"
                 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fa fa-twitter"></i>
                 <span class="hidden">Twitter</span>
@@ -120,7 +212,7 @@ ga('send', 'pageview');
         
 
         
-            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkn.am%2fposts%2ffoo_post%2f"
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkn.am%2fposts%2fexposing_docker_containers%2f"
                 onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                 <i class="fa fa-facebook"></i>
                 <span class="hidden">Facebook</span>
@@ -128,7 +220,7 @@ ga('send', 'pageview');
         
 
         
-            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fkn.am%2fposts%2ffoo_post%2f"
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fkn.am%2fposts%2fexposing_docker_containers%2f"
               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
               <i class="fa fa-google-plus"></i>
                 <span class="hidden">Google+</span>
@@ -155,7 +247,7 @@ ga('send', 'pageview');
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 0001 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2018 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
