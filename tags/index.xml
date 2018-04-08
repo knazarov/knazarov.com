@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Konstantin Nazarov</title>
-    <link>https://kn.am/tags/</link>
+    <link>https://knazarov.com/tags/</link>
     <description>Recent content in Tags on Konstantin Nazarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Konstantin Nazarov</copyright>
     
-	<atom:link href="https://kn.am/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://knazarov.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

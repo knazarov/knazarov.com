@@ -2,42 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Konstantin Nazarov</title>
-    <link>https://kn.am/</link>
+    <link>https://knazarov.com/</link>
     <description>Recent content on Konstantin Nazarov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Konstantin Nazarov</copyright>
     <lastBuildDate>Sun, 08 Apr 2018 00:00:00 +0300</lastBuildDate>
     
-	<atom:link href="https://kn.am/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://knazarov.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Running Herokuish apps in Docker</title>
-      <link>https://kn.am/posts/herokuish_apps_in_docker/</link>
+      <link>https://knazarov.com/posts/herokuish_apps_in_docker/</link>
       <pubDate>Sun, 08 Apr 2018 00:00:00 +0300</pubDate>
       
-      <guid>https://kn.am/posts/herokuish_apps_in_docker/</guid>
+      <guid>https://knazarov.com/posts/herokuish_apps_in_docker/</guid>
       <description>Heroku allows you to build an app, push the code to a git repository and have it automatically deployed to a server. The beauty of this solution is that if you follow certain simple conventions, you don&amp;rsquo;t have to invest any brainpower into the deployment at all.
 Then comes Dokku, which is built on the same principles as Heroku and can serve as a drop-in replacement for it on your own server.</description>
     </item>
     
     <item>
       <title>Exposing Docker containers to external network</title>
-      <link>https://kn.am/posts/exposing_docker_containers/</link>
+      <link>https://knazarov.com/posts/exposing_docker_containers/</link>
       <pubDate>Sat, 21 May 2016 00:00:00 +0300</pubDate>
       
-      <guid>https://kn.am/posts/exposing_docker_containers/</guid>
+      <guid>https://knazarov.com/posts/exposing_docker_containers/</guid>
       <description>If you&amp;rsquo;ve ever tried to assign a routable and externally visible IP address to your Docker containers, you probably know that it&amp;rsquo;s not a trivial task. There are a few posts out there that show a few interesting methods, like this or this or even from the creators of Docker itself.
 I&amp;rsquo;ve been digging for a better method, that will still allow you to use Docker API and don&amp;rsquo;t execute any host-side commands after starting every container.</description>
     </item>
     
     <item>
       <title>About me</title>
-      <link>https://kn.am/pages/about/</link>
+      <link>https://knazarov.com/pages/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kn.am/pages/about/</guid>
+      <guid>https://knazarov.com/pages/about/</guid>
       <description>Hi,
 My name is Konstantin. I&amp;rsquo;m a software engineering professional with 10 years of experience. During my career I worked with a diverse set of technologies, ranging from RTOS kernel development to highly loaded web services.
 Currently work at a database startup Tarantool where I manage a team building enterprise solutions based off our own database and application server.
@@ -47,19 +47,19 @@ For individuals I offer productivity and goal setting coaching.</description>
     
     <item>
       <title>Contact</title>
-      <link>https://kn.am/pages/contact/</link>
+      <link>https://knazarov.com/pages/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kn.am/pages/contact/</guid>
+      <guid>https://knazarov.com/pages/contact/</guid>
       <description>If you have a question that I can answer in a few messages, just email me at mail@kn.am. Otherwise PM me on Telegram.</description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>https://kn.am/pages/projects/</link>
+      <link>https://knazarov.com/pages/projects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://kn.am/pages/projects/</guid>
+      <guid>https://knazarov.com/pages/projects/</guid>
       <description>Here I&amp;rsquo;ll list projects I completed</description>
     </item>
     
