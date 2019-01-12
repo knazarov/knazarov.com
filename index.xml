@@ -33,6 +33,17 @@ I&amp;rsquo;ve been digging for a better method, that will still allow you to us
     </item>
     
     <item>
+      <title>Setting up postfix in OS X 10.14 (Mojave)</title>
+      <link>https://knazarov.com/posts/setting_up_postfix_on_os_x/</link>
+      <pubDate>Sat, 21 May 2016 00:00:00 +0300</pubDate>
+      
+      <guid>https://knazarov.com/posts/setting_up_postfix_on_os_x/</guid>
+      <description>I wrote this post because there are lots of articles that describe how to set up postfix on OS X which recommend strange things, like disabling System Integrity Protection. I&amp;rsquo;ll show you how it can be achieved easily without any ugly hacks.
+Here&amp;rsquo;s why you may want to use postfix on OS X:
+ if you are managing an OS X server (like in a build farm) and want to be able to send automated emails if you use mutt or other mailer like mu4e and want a persistent outgoing mail queue that works offline to write and debug scripts that use default system mailer  First thing you need to know about postfix in OS X is that it is already set up and running!</description>
+    </item>
+    
+    <item>
       <title>About me</title>
       <link>https://knazarov.com/pages/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
