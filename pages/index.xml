@@ -19,8 +19,8 @@
       <guid>https://knazarov.com/pages/about/</guid>
       <description>Hi,
 My name is Konstantin. I&amp;rsquo;m a software engineering professional with 10 years of experience. During my career I worked with a diverse set of technologies, ranging from RTOS kernel development to highly loaded web services.
-Currently work at a database startup Tarantool where I manage a team building enterprise solutions based off our own database and application server.
-I also offer consulting in application architecture and implementing MVPs.
+Currently I work at Tarantool where I manage a team building enterprise solutions based off our own database and application server.
+I offer consulting in application architecture and implementing MVPs.
 For individuals I offer productivity and goal setting coaching.</description>
     </item>
     
@@ -30,7 +30,8 @@ For individuals I offer productivity and goal setting coaching.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://knazarov.com/pages/contact/</guid>
-      <description>If you have a question that I can answer in a few messages, just email me at mail@knazarov.com. Otherwise PM me on Telegram.</description>
+      <description>The best and most reliable way to contact me is by email: mail@knazarov.com. I read and answer everything. If you find that I didn&amp;rsquo;t &amp;ndash; it is most likely due to your message ending up in my Spam folder. Try sending it again with different subject and/or from different email address.
+If you would like to chat with me &amp;ndash; write to this telegram account.</description>
     </item>
     
     <item>
@@ -39,7 +40,8 @@ For individuals I offer productivity and goal setting coaching.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://knazarov.com/pages/projects/</guid>
-      <description>Here I&amp;rsquo;ll list projects I completed</description>
+      <description>Simple Applicant Tracking System http://hiring.knazarov.com is a simple Applicant Tracking System that helps make hiring in small teams easier. It has just a bare minimum of functionality: a table with all your candidates, ability to upload CVs and comment on individual candidates. It also allows a team of people to join together into an organization and collaborate on the shared pool of candidaets.
+I&amp;rsquo;ve developed it mostly for my own purposes while working at Tarantool.</description>
     </item>
     
   </channel>
