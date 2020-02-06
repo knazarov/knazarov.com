@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://knazarov.com/posts/how_i_keep_a_plaintext_journal/</loc>
+    <lastmod>2020-02-07T00:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://knazarov.com/</loc>
+    <lastmod>2020-02-07T00:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://knazarov.com/posts/</loc>
+    <lastmod>2020-02-07T00:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://knazarov.com/posts/setting_up_postfix_on_os_x/</loc>
     <lastmod>2019-01-08T00:00:00+03:00</lastmod>
   </url>
@@ -26,20 +41,7 @@
   </url>
   
   <url>
-    <loc>https://knazarov.com/</loc>
-    <lastmod>2019-01-08T00:00:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://knazarov.com/pages/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://knazarov.com/posts/</loc>
-    <lastmod>2019-01-08T00:00:00+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -48,7 +50,6 @@
   
   <url>
     <loc>https://knazarov.com/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>

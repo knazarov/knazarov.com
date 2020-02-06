@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Konstantin Nazarov</copyright>
-    <lastBuildDate>Tue, 08 Jan 2019 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2020 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://knazarov.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How I keep a plaintext journal</title>
+      <link>https://knazarov.com/posts/how_i_keep_a_plaintext_journal/</link>
+      <pubDate>Fri, 07 Feb 2020 00:00:00 +0300</pubDate>
+      
+      <guid>https://knazarov.com/posts/how_i_keep_a_plaintext_journal/</guid>
+      <description>Keeping a journal has become a transformative experience for me. I tried to start writing out my thoughts multiple times last 5 years or so. But it didn&amp;rsquo;t click until my last attempt.
+What helped me in the end was to concentrate on analyzing problems that really bother me and be curious and frank about it. I won&amp;rsquo;t tell you there was any particular tool or magical method that helped me to jumpstart it.</description>
+    </item>
     
     <item>
       <title>Setting up postfix in OS X 10.14 (Mojave)</title>
