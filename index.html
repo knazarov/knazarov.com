@@ -15,7 +15,9 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         
-            <link href="https://knazarov.com/index.xml" rel="alternate" type="application/rss+xml">
+            <link href="/index.xml" rel="alternate" type="application/rss+xml">
+        
+        
         
         
     </head>
@@ -46,19 +48,20 @@ if (!doNotTrack) {
                         
                         <a class="button-square" href="https://knazarov.com/index.xml"><i class="fa fa-rss"></i></a>
                         
-                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/racktear/">
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/racktear/" rel="me">
                                 <i class="fa fa-twitter"></i>
                             </a>
                         
                         
                         
-                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/knazarov/">
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/knazarov/" rel="me">
                                 <i class="fa fa-github-alt"></i>
                             </a>
                         
                         
                         
-                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/knazarov/">
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/knazarov/" rel="me">
                                 <i class="fa fa-linkedin"></i>
                             </a>
                         
@@ -99,7 +102,7 @@ if (!doNotTrack) {
             <div id="container">
 
 
-<div id="post-index" class="container">
+<div id="post-index" class="container" itemscope="" itemtype="https://schema.org/Blog">
     
     <header class="post-header">
         <h1 class="post-title" itemprop="name">Konstantin Nazarov</h1>
@@ -111,34 +114,34 @@ if (!doNotTrack) {
     <ol class="post-list">
         
         
-            <li class="post-stub">
-    <a href="https://knazarov.com/posts/how_i_keep_a_plaintext_journal/">
-        <h4 class="post-stub-title">How I keep a plaintext journal</h4>
-        
-        
-    </a>
-</li>
-        
-            <li class="post-stub">
-    <a href="https://knazarov.com/posts/setting_up_postfix_on_os_x/">
-        <h4 class="post-stub-title">Setting up postfix in OS X 10.14 (Mojave)</h4>
-        
+            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
+    <a href="https://knazarov.com/posts/how_i_keep_a_plaintext_journal/" itemprop="url" title="Go to post detail">
+        <h4 class="post-stub-title" itemprop="name">How I keep a plaintext journal</h4>
+        <time class="post-stub-date" datetime="2020-02-07">Published Fri, Feb 7, 2020</time>
         
     </a>
 </li>
         
-            <li class="post-stub">
-    <a href="https://knazarov.com/posts/herokuish_apps_in_docker/">
-        <h4 class="post-stub-title">Running Herokuish apps in Docker</h4>
-        
+            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
+    <a href="https://knazarov.com/posts/setting_up_postfix_on_os_x/" itemprop="url" title="Go to post detail">
+        <h4 class="post-stub-title" itemprop="name">Setting up postfix in OS X 10.14 (Mojave)</h4>
+        <time class="post-stub-date" datetime="2019-01-08">Published Tue, Jan 8, 2019</time>
         
     </a>
 </li>
         
-            <li class="post-stub">
-    <a href="https://knazarov.com/posts/exposing_docker_containers/">
-        <h4 class="post-stub-title">Exposing Docker containers to external network</h4>
+            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
+    <a href="https://knazarov.com/posts/herokuish_apps_in_docker/" itemprop="url" title="Go to post detail">
+        <h4 class="post-stub-title" itemprop="name">Running Herokuish apps in Docker</h4>
+        <time class="post-stub-date" datetime="2018-04-08">Published Sun, Apr 8, 2018</time>
         
+    </a>
+</li>
+        
+            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
+    <a href="https://knazarov.com/posts/exposing_docker_containers/" itemprop="url" title="Go to post detail">
+        <h4 class="post-stub-title" itemprop="name">Exposing Docker containers to external network</h4>
+        <time class="post-stub-date" datetime="2016-05-21">Published Sat, May 21, 2016</time>
         
     </a>
 </li>
@@ -185,3 +188,4 @@ if (!doNotTrack) {
         <script src="https://knazarov.com/js/scripts.js"></script>
     </body>
 </html>
+
