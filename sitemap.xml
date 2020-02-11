@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://knazarov.com/posts/how_i_keep_a_plaintext_journal/</loc>
-    <lastmod>2020-02-07T00:00:00+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://knazarov.com/</loc>
-    <lastmod>2020-02-07T00:00:00+03:00</lastmod>
+    <lastmod>2020-02-12T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://knazarov.com/posts/</loc>
+    <lastmod>2020-02-12T00:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://knazarov.com/posts/why_i_designed_app_framework_for_a_database/</loc>
+    <lastmod>2020-02-12T00:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://knazarov.com/posts/how_i_keep_a_plaintext_journal/</loc>
     <lastmod>2020-02-07T00:00:00+03:00</lastmod>
   </url>
   

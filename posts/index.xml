@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Konstantin Nazarov</copyright>
-    <lastBuildDate>Fri, 07 Feb 2020 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://knazarov.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Why I designed an application framework for a database</title>
+      <link>https://knazarov.com/posts/why_i_designed_app_framework_for_a_database/</link>
+      <pubDate>Wed, 12 Feb 2020 00:00:00 +0300</pubDate>
+      
+      <guid>https://knazarov.com/posts/why_i_designed_app_framework_for_a_database/</guid>
+      <description>Tarantool is an in-memory database, that happens to have a general purpose programming language onboard. While some databases like MySQL or Postgres allow you to write stored procedures, they are nowhere near as powerful as, say, Python. And even if they have support for external languages, they always feel like second-class citizens because usually they were bolted on after these products have matured. In tarantool, Lua has been added very early, and now covers the entirety of the database API.</description>
+    </item>
     
     <item>
       <title>How I keep a plaintext journal</title>
