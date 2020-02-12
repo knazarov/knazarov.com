@@ -13,6 +13,17 @@
     
     
     <item>
+      <title>How we celebrate birthdays at Tarantool</title>
+      <link>https://knazarov.com/posts/how_we_celebrate_birthdays_at_tarantool/</link>
+      <pubDate>Wed, 12 Feb 2020 00:00:00 +0300</pubDate>
+      
+      <guid>https://knazarov.com/posts/how_we_celebrate_birthdays_at_tarantool/</guid>
+      <description>When I joined Tarantool, there were only about 10 people in the whole team. We used to fit in one room on daily standups.
+One day I decided to do something for the people I work with, and asked if they are fine with me organizing birthday parties. The deal was that everyone who has a birthday buys pizza and other folks collectively buy them a present.
+I had a simple python script that created a Telegram chat and invited everyone except the person having a birthday, where we had a discussion about the present.</description>
+    </item>
+    
+    <item>
       <title>Why I designed an application framework for a database</title>
       <link>https://knazarov.com/posts/why_i_designed_app_framework_for_a_database/</link>
       <pubDate>Wed, 12 Feb 2020 00:00:00 +0300</pubDate>
