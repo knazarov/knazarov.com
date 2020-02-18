@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Konstantin Nazarov</copyright>
-    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 19 Feb 2020 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://knazarov.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Setting goals and figuring out values</title>
+      <link>https://knazarov.com/posts/setting_goals_and_figuring_out_values_2020/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0300</pubDate>
+      
+      <guid>https://knazarov.com/posts/setting_goals_and_figuring_out_values_2020/</guid>
+      <description>I have a very long history with struggling to set goals that resonate with my true motives. This post is a summary of what I&amp;rsquo;ve come up with. It may be of some use to you, but please take everything here with a grain of salt, as everyone is unique and there are no universal ways that would work for everyone.
+There is a post at LessWrong called Beware of other-optimizing that pretty much sums up my experience.</description>
+    </item>
     
     <item>
       <title>How we celebrate birthdays at Tarantool</title>
