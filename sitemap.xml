@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://knazarov.com/posts/fully_vendored_emacs_configuration/</loc>
+    <lastmod>2020-02-19T00:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://knazarov.com/</loc>
     <lastmod>2020-02-19T00:00:00+03:00</lastmod>
   </url>

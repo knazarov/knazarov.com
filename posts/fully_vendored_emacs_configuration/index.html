@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Konstantin Nazarov &middot; Konstantin Nazarov</title>
-        <meta name="description" content="I help companies build and prototype data-centric apps">
+        <title>Fully vendored Emacs configuration &middot; Konstantin Nazarov</title>
+        <meta name="description" content="Over the years I&rsquo;ve rewritten my emacs configuration many times. Initially I started with a plain .emacs configuration file and copy-pasted stuff from blogs or wikis that I liked. It wasn&rsquo;t synchronized between my home and work machines. It was also before GitHub came to life, and long before storing your dotfiles there became fashionable.
+Then I stumbled upon Prelude and Spacemacs, both of which provide featureful &ldquo;batteries included&rdquo; configurations that are highly advanced.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="generator" content="Hugo 0.57.2" />
@@ -14,8 +15,6 @@
         <link rel="stylesheet" href="https://knazarov.com/dist/styles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        
-            <link href="/index.xml" rel="alternate" type="application/rss+xml">
         
         
         
@@ -102,88 +101,103 @@ if (!doNotTrack) {
             <div id="container">
 
 
-<div id="post-index" class="container" itemscope="" itemtype="https://schema.org/Blog">
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title">Fully vendored Emacs configuration</h1>
     
-    <header class="post-header">
-        <h1 class="post-title" itemprop="name">Konstantin Nazarov</h1>
-        <p>I help companies build and prototype data-centric apps</p>
-    </header>
+</header>
 
+        <div class="post-content clearfix">
+    
 
+    <p>Over the years I&rsquo;ve rewritten <a href="https://github.com/knazarov/emacs.d">my emacs configuration</a> many
+times. Initially I started with a plain <code>.emacs</code> configuration file
+and copy-pasted stuff from blogs or wikis that I liked. It wasn&rsquo;t
+synchronized between my home and work machines. It was also before
+GitHub came to life, and long before storing your dotfiles there
+became fashionable.</p>
 
-    <ol class="post-list">
-        
-        
-            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="https://knazarov.com/posts/fully_vendored_emacs_configuration/" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">Fully vendored Emacs configuration</h4>
-        <time class="post-stub-date" datetime="2020-02-19">Published Wed, Feb 19, 2020</time>
-        
-    </a>
-</li>
-        
-            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="https://knazarov.com/posts/setting_goals_and_figuring_out_values_2020/" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">Setting goals and figuring out values</h4>
-        <time class="post-stub-date" datetime="2020-02-19">Published Wed, Feb 19, 2020</time>
-        
-    </a>
-</li>
-        
-            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="https://knazarov.com/posts/how_we_celebrate_birthdays_at_tarantool/" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">How we celebrate birthdays at Tarantool</h4>
-        <time class="post-stub-date" datetime="2020-02-12">Published Wed, Feb 12, 2020</time>
-        
-    </a>
-</li>
-        
-            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="https://knazarov.com/posts/why_i_designed_app_framework_for_a_database/" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">Why I designed an application framework for a database</h4>
-        <time class="post-stub-date" datetime="2020-02-12">Published Wed, Feb 12, 2020</time>
-        
-    </a>
-</li>
-        
-            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="https://knazarov.com/posts/how_i_keep_a_plaintext_journal/" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">How I keep a plaintext journal</h4>
-        <time class="post-stub-date" datetime="2020-02-07">Published Fri, Feb 7, 2020</time>
-        
-    </a>
-</li>
-        
-            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="https://knazarov.com/posts/setting_up_postfix_on_os_x/" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">Setting up postfix in OS X 10.14 (Mojave)</h4>
-        <time class="post-stub-date" datetime="2019-01-08">Published Tue, Jan 8, 2019</time>
-        
-    </a>
-</li>
-        
-            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="https://knazarov.com/posts/herokuish_apps_in_docker/" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">Running Herokuish apps in Docker</h4>
-        <time class="post-stub-date" datetime="2018-04-08">Published Sun, Apr 8, 2018</time>
-        
-    </a>
-</li>
-        
-            <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
-    <a href="https://knazarov.com/posts/exposing_docker_containers/" itemprop="url" title="Go to post detail">
-        <h4 class="post-stub-title" itemprop="name">Exposing Docker containers to external network</h4>
-        <time class="post-stub-date" datetime="2016-05-21">Published Sat, May 21, 2016</time>
-        
-    </a>
-</li>
-        
-    </ol>
+<p>Then I stumbled upon <a href="https://github.com/bbatsov/prelude">Prelude</a> and <a href="https://github.com/syl20bnr/spacemacs">Spacemacs</a>, both of which provide
+featureful &ldquo;batteries included&rdquo; configurations that are highly
+advanced. They fine-tune almost every conceivable aspect of Emacs to
+perfection. I jumped on the bandwagon because the initial experience
+was great.</p>
 
-    <div class="post-navigation">
+<p>It all lasted until I needed to tune the configuration to my own
+workflow, which is when things started to break down. I couldn&rsquo;t
+maintain my own fork on top of Prelude, since it gets changed
+constantly. And the default way of layering stuff on top of Prelude is
+not powerful enough to change some settings. The same is basically
+true for Spacemacs.</p>
+
+<p>Another issue that frustrated me was that the underlying third-party
+packages are constantly updated and the user experience subtly changed
+all the time.</p>
+
+<p>So I figured out it was time for me to sit down and write my own
+configuration from scratch. I wanted it to be anti-mainstream and
+follow my own needs and not the community. There were a few design
+goals:</p>
+
+<ul>
+<li>Keep configuration in one file, as simple as possible, without
+additional abstractions.</li>
+<li>Vendor the hell out of third party modules (everything in one git
+repo, no external deps).</li>
+<li>Do not update anything unless really necessary (Emacs is very
+stable, and core APIs change very rarely, so things written 10 years
+ago still work).</li>
+</ul>
+
+<p>I know that many people consider vendoring a bad practice. But my
+belief is that it&rsquo;s highly contextual. Yes, for many established
+platforms and languages you may rely on the public package repository
+to stay for a long time. But even then, <a href="https://github.com/left-pad/left-pad">funny things still happen</a> and
+owners occasionally delete their repositories. In Emacs world it&rsquo;s
+significantly worse: there is no way to install older versions of
+packages from the official repositories, and packages go obsolete all
+the time.</p>
+
+<p>There are solutions to this problem, but they are either incomplete,
+experimental or create a level of complexity I couldn&rsquo;t care less
+about. So instead, I went with the extremely simple but unorthodox
+approach. If you are struggling with maintaining your emacs dotfiles,
+<a href="https://github.com/knazarov/emacs.d">give my approach a try</a>.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Fully%20vendored%20Emacs%20configuration&url=https%3a%2f%2fknazarov.com%2fposts%2ffully_vendored_emacs_configuration%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
         
 
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fknazarov.com%2fposts%2ffully_vendored_emacs_configuration%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+        
+            <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&title=Fully%20vendored%20Emacs%20configuration&url=https%3a%2f%2fknazarov.com%2fposts%2ffully_vendored_emacs_configuration%2f&summary="
+               onclick="window.open(this.href, 'linkedin-share', 'width=554,height=481');return false;">
+               <i class="fa fa-linkedin"></i>
+               <span class="hidden">LinkedIn</span>
+            </a>
+        
     </div>
+</footer>
+    </article>
 </div>
 
             </div>

@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>Fully vendored Emacs configuration</title>
+      <link>https://knazarov.com/posts/fully_vendored_emacs_configuration/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0300</pubDate>
+      
+      <guid>https://knazarov.com/posts/fully_vendored_emacs_configuration/</guid>
+      <description>Over the years I&amp;rsquo;ve rewritten my emacs configuration many times. Initially I started with a plain .emacs configuration file and copy-pasted stuff from blogs or wikis that I liked. It wasn&amp;rsquo;t synchronized between my home and work machines. It was also before GitHub came to life, and long before storing your dotfiles there became fashionable.
+Then I stumbled upon Prelude and Spacemacs, both of which provide featureful &amp;ldquo;batteries included&amp;rdquo; configurations that are highly advanced.</description>
+    </item>
+    
+    <item>
       <title>Setting goals and figuring out values</title>
       <link>https://knazarov.com/posts/setting_goals_and_figuring_out_values_2020/</link>
       <pubDate>Wed, 19 Feb 2020 00:00:00 +0300</pubDate>
