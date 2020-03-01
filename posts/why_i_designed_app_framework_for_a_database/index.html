@@ -7,7 +7,7 @@
         <meta name="description" content="Tarantool is an in-memory database, that happens to have a general purpose programming language onboard. While some databases like MySQL or Postgres allow you to write stored procedures, they are nowhere near as powerful as, say, Python. And even if they have support for external languages, they always feel like second-class citizens because usually they were bolted on after these products have matured. In tarantool, Lua has been added very early, and now covers the entirety of the database API.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.57.2" />
+        <meta name="generator" content="Hugo 0.65.3" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -118,13 +118,11 @@ external languages, they always feel like second-class citizens
 because usually they were bolted on after these products have
 matured. In tarantool, Lua has been added very early, and now covers
 the entirety of the database API.</p>
-
 <p>It was 2018 and we started building many small and large apps in
 Tarantool. They ranged from caches that pulled their data from
 relational databases with custom expiry strategies, to larger systems
 that combined stream processing, graphql, user-extensible logic, data
 access policies, etc.</p>
-
 <p>Things went well in the beginning, but I quickly noticed that every
 team had a different way in which their app was laid out in source
 control. They had different sets of scripts to launch the app, test
@@ -132,17 +130,14 @@ harnesses that started the database and loaded code, dependency
 management for both development and production, and deployment
 scripts. Well, you can easily find the same examples in the Python
 world if you browse GitHub repos with web apps.</p>
-
 <p>What I figured out was the root cause of this drift, is that there was
 no standard way to pass configuration parameters that would be
 portable and universal across different types of deployment: for
 Docker, local development and plain old system packages. As every
 person reinvented their own way to do it, the chances of one team&rsquo;s
 tools working with other team&rsquo;s project diminished.</p>
-
 <p>To solve this problem I borrowed ideas from the <a href="https://www.12factor.net/">Heroku 12-factor app
 methodology</a>. Namely:</p>
-
 <ul>
 <li>Every Tarantool app is a regular unix process, that is
 self-sufficient</li>
@@ -159,14 +154,12 @@ root of the app repository</li>
 possible</li>
 <li>Don&rsquo;t require any external processes in order to function properly</li>
 </ul>
-
 <p>In addition to problems with application startup and configuration, I
 really wanted to solve one problem that bugged me a lot when working
 with other platforms like Python and Ruby: packaging the app for your
 Linux distro of choice requires getting really familiar with the ins
 and outs of specific packaging systems, even if your app doesn&rsquo;t
 deviate much from the &ldquo;typical&rdquo; app for the language.</p>
-
 <p>The exact programmatic solution for those problems is 2-fold: firstly,
 there is a tool called <a href="https://github.com/tarantool/cartridge-cli">cartridge-cli</a> that allows you to create a
 project from template, that contains everything set up just right. It
@@ -177,14 +170,12 @@ single command. Secondly, there is a framework called <a href="https://github.co
 enforces how applications are started and configured. It hides some of
 the complexity that every production-level Tarantool app accumulates,
 and makes sure that every app can interoperate with our Ops tools.</p>
-
 <p>The important distinction between Cartridge and application frameworks
 like Rails, Django and Flask, is that it doesn&rsquo;t enforce any
 restrictions on how you write business logic. This was a deliberate
 choice, because standardization of business logic structure has
 significantly less impact on our delivery, than standardized
 management and operations.</p>
-
 <p>The exact moment I realized we achieved the goal is when it became
 possible to create <a href="https://github.com/tarantool/cartridge-cli/tree/master/examples/getting-started-app">an end-to-end getting started guide</a> that covered
 everything from project bootstrap to launching it and setting up a

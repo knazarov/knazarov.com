@@ -8,7 +8,7 @@
 I&rsquo;ve been digging for a better method, that will still allow you to use Docker API and don&rsquo;t execute any host-side commands after starting every container.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.57.2" />
+        <meta name="generator" content="Hugo 0.65.3" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -115,70 +115,44 @@ if (!doNotTrack) {
 address to your Docker containers, you probably know that it&rsquo;s not a
 trivial task. There are a few posts out there that show a few
 interesting methods, like <a href="http://blog.oddbit.com/2014/08/11/four-ways-to-connect-a-docker/">this</a> or <a href="http://hicu.be/docker-networking-macvlan-bridge-mode-configuration">this</a> or even <a href="https://github.com/jpetazzo/pipework">from the creators of Docker itself</a>.</p>
-
 <p>I&rsquo;ve been digging for a better method, that will still allow you to
 use Docker API and don&rsquo;t execute any host-side commands after
 starting every container. Fortunately, it turns out that Docker
 doesn&rsquo;t try to recreate a network bridge it uses to connect
 containers together, if the bridge already exists. So you may use it
 like this:</p>
-
 <p>Create a new bridge:</p>
-
-<pre><code class="language-bash">brctl addbr mybridge
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brctl addbr mybridge
 
 ip link set mybridge up
-</code></pre>
+</code></pre></div><p>Look at the settings of your primary adapter:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ifconfig eth0
 
-<p>Look at the settings of your primary adapter:</p>
-
-<pre><code class="language-bash">ifconfig eth0
-
-eth0: flags=4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt; mtu 1500
+eth0: flags<span style="color:#f92672">=</span>4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt; mtu <span style="color:#ae81ff">1500</span>
 inet 10.211.55.49 netmask 255.255.255.0 broadcast 10.211.55.255
-</code></pre>
+</code></pre></div><p>See the default route:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip route
 
-<p>See the default route:</p>
-
-<pre><code class="language-bash">ip route
-
-default via 10.211.55.1 dev eth0 proto static metric 100
-</code></pre>
-
-<p>Add eth0 to the bridge:</p>
-
-<pre><code class="language-bash">brctl addif mybridge eth0
-</code></pre>
-
-<p>Configure the bridge:</p>
-
-<pre><code class="language-bash">ip addr del 10.211.55.49/24 dev eth0
+default via 10.211.55.1 dev eth0 proto static metric <span style="color:#ae81ff">100</span>
+</code></pre></div><p>Add eth0 to the bridge:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brctl addif mybridge eth0
+</code></pre></div><p>Configure the bridge:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip addr del 10.211.55.49/24 dev eth0
 ip addr add 10.211.55.49/24 dev mybridge
-</code></pre>
-
-<p>Set up default route on the bridge:</p>
-
-<pre><code class="language-bash">ip route del default
+</code></pre></div><p>Set up default route on the bridge:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip route del default
 ip route add default via 10.211.55.1 dev mybridge
-</code></pre>
-
-<p>Create a new network (replace with the networks relevant to you):</p>
-
-<pre><code class="language-bash">docker network create --driver=bridge --subnet 10.211.55.0/24 --gateway 10.211.55.49 --ip-range 10.211.55.128/25 -o &quot;com.docker.network.bridge.name&quot;=&quot;mybridge&quot; mybridge
-</code></pre>
-
-<p>Where:</p>
-
+</code></pre></div><p>Create a new network (replace with the networks relevant to you):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker network create --driver<span style="color:#f92672">=</span>bridge --subnet 10.211.55.0/24 --gateway 10.211.55.49 --ip-range 10.211.55.128/25 -o <span style="color:#e6db74">&#34;com.docker.network.bridge.name&#34;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mybridge&#34;</span> mybridge
+</code></pre></div><p>Where:</p>
 <ul>
-<li><code>--subnet</code> should be the same as the network you want to expose containers to (e.g. eth0)</li></li>
-<li><code>--gateway</code> specifies the IP address that will be set on the bridge and through which containers will route traffic. This is <span class="underline">not</span> the external gateway (10.211.55.1). Unfortunately there is no separate setting for the bridge&rsquo;s IP.</li></li>
-<li><code>--ip-range</code> is important to specify so that docker won&rsquo;t automatically allocate addresses that you know will intersect with other hosts on the network, as it assumes total control of the subnet otherwise.</li></li>
+<li><code>--subnet</code> should be the same as the network you want to expose containers to (e.g. eth0)<!-- raw HTML omitted --></li>
+<li><code>--gateway</code> specifies the IP address that will be set on the bridge and through which containers will route traffic. This is <!-- raw HTML omitted -->not<!-- raw HTML omitted --> the external gateway (10.211.55.1). Unfortunately there is no separate setting for the bridge&rsquo;s IP.<!-- raw HTML omitted --></li>
+<li><code>--ip-range</code> is important to specify so that docker won&rsquo;t automatically allocate addresses that you know will intersect with other hosts on the network, as it assumes total control of the subnet otherwise.<!-- raw HTML omitted --></li>
 <li>and the <code>com.docker.network.bridge.name</code> option tells docker to not generate a bridge name, and use the provided one.</li>
 </ul>
-
 <p>Then you may start creating containers as usual:</p>
-
-<pre><code class="language-bash">docker run --rm -t -i --net mybridge alpine:3.4 /bin/sh
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --rm -t -i --net mybridge alpine:3.4 /bin/sh
 
 ifconfig eth0
 
@@ -186,19 +160,14 @@ eth0 Link encap:Ethernet HWaddr 02:42:AC:11:00:02
 inet addr:10.211.55.128 Bcast:0.0.0.0 Mask:255.255.0.0
 
 ...
-</code></pre>
+</code></pre></div><p>and then from outside of your host:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ping 10.211.55.128
 
-<p>and then from outside of your host:</p>
-
-<pre><code class="language-bash">ping 10.211.55.128
-
-PING 10.211.55.128 (10.211.55.128): 56 data bytes
-64 bytes from 10.211.55.128: icmp_seq=0 ttl=64 time=0.393 ms
-64 bytes from 10.211.55.128: icmp_seq=1 ttl=64 time=0.259 ms
-64 bytes from 10.211.55.128: icmp_seq=2 ttl=64 time=0.352 ms
-</code></pre>
-
-<p>That works out of the box, with standard Docker API. You only need
+PING 10.211.55.128 <span style="color:#f92672">(</span>10.211.55.128<span style="color:#f92672">)</span>: <span style="color:#ae81ff">56</span> data bytes
+<span style="color:#ae81ff">64</span> bytes from 10.211.55.128: icmp_seq<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> ttl<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> time<span style="color:#f92672">=</span>0.393 ms
+<span style="color:#ae81ff">64</span> bytes from 10.211.55.128: icmp_seq<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> ttl<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> time<span style="color:#f92672">=</span>0.259 ms
+<span style="color:#ae81ff">64</span> bytes from 10.211.55.128: icmp_seq<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> ttl<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> time<span style="color:#f92672">=</span>0.352 ms
+</code></pre></div><p>That works out of the box, with standard Docker API. You only need
 to create a bridge in advance and set everything up  carefully. You
 may even prefer to use external IPAM system to allocate IPs, and set
 them manually via <code>--ip</code>.</p>

@@ -8,7 +8,7 @@
 Then I stumbled upon Prelude and Spacemacs, both of which provide featureful &ldquo;batteries included&rdquo; configurations that are highly advanced.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.57.2" />
+        <meta name="generator" content="Hugo 0.65.3" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -117,29 +117,24 @@ and copy-pasted stuff from blogs or wikis that I liked. It wasn&rsquo;t
 synchronized between my home and work machines. It was also before
 GitHub came to life, and long before storing your dotfiles there
 became fashionable.</p>
-
 <p>Then I stumbled upon <a href="https://github.com/bbatsov/prelude">Prelude</a> and <a href="https://github.com/syl20bnr/spacemacs">Spacemacs</a>, both of which provide
 featureful &ldquo;batteries included&rdquo; configurations that are highly
 advanced. They fine-tune almost every conceivable aspect of Emacs to
 perfection. I jumped on the bandwagon because the initial experience
 was great.</p>
-
 <p>It all lasted until I needed to tune the configuration to my own
 workflow, which is when things started to break down. I couldn&rsquo;t
 maintain my own fork on top of Prelude, since it gets changed
 constantly. And the default way of layering stuff on top of Prelude is
 not powerful enough to change some settings. The same is basically
 true for Spacemacs.</p>
-
 <p>Another issue that frustrated me was that the underlying third-party
 packages are constantly updated and the user experience subtly changed
 all the time.</p>
-
 <p>So I figured out it was time for me to sit down and write my own
 configuration from scratch. I wanted it to be anti-mainstream and
 follow my own needs and not the community. There were a few design
 goals:</p>
-
 <ul>
 <li>Keep configuration in one file, as simple as possible, without
 additional abstractions.</li>
@@ -149,7 +144,6 @@ repo, no external deps).</li>
 stable, and core APIs change very rarely, so things written 10 years
 ago still work).</li>
 </ul>
-
 <p>I know that many people consider vendoring a bad practice. But my
 belief is that it&rsquo;s highly contextual. Yes, for many established
 platforms and languages you may rely on the public package repository
@@ -158,7 +152,6 @@ owners occasionally delete their repositories. In Emacs world it&rsquo;s
 significantly worse: there is no way to install older versions of
 packages from the official repositories, and packages go obsolete all
 the time.</p>
-
 <p>There are solutions to this problem, but they are either incomplete,
 experimental or create a level of complexity I couldn&rsquo;t care less
 about. So instead, I went with the extremely simple but unorthodox

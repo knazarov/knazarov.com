@@ -8,7 +8,7 @@
 Then comes Dokku, which is built on the same principles as Heroku and can serve as a drop-in replacement for it on your own server.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.57.2" />
+        <meta name="generator" content="Hugo 0.65.3" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -115,7 +115,6 @@ if (!doNotTrack) {
 and have it automatically deployed to a server. The beauty of this
 solution is that if you follow certain simple conventions, you don&rsquo;t
 have to invest any brainpower into the deployment at all.</p>
-
 <p>Then comes <a href="http://dokku.viewdocs.io/dokku/">Dokku</a>, which is built on the same principles as Heroku and
 can serve as a drop-in replacement for it on your own server. It is
 possible because many layers of Heroku app infrastructure are open
@@ -124,7 +123,6 @@ source: Heroku-16 (the base Ubuntu-derived OS image), <a href="https://devcenter
 small, very well designed and can be trivially managed by anyone on a
 <a href="https://www.digitalocean.com/products/one-click-apps/dokku/">$5 DigitalOcean node</a>. If you need to host your own pet projects or
 experiments, I seriously recommend you to give Dokku a try.</p>
-
 <p>One day I decided to dig deeper into Dokku to see how exactly it
 achieves Heroku emulation. Turns out, there is this thing called
 <a href="https://github.com/gliderlabs/herokuish">herokuish</a>, written in a mix of Go and Bash that is made to support
@@ -132,27 +130,19 @@ Heroku build and run tasks in regular Docker containers. Its core idea
 is simple: you just mount or copy your app&rsquo;s source code into the
 container, type a few commands, and it figures out how to download
 dependencies, build the app and run it.</p>
-
 <p>If you are here for a recipe, just follow these steps (assuming you
 are currently in the directory with your app):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --rm -t -i -e USER<span style="color:#f92672">=</span>herokuishuser -e PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span> -v <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>:/app gliderlabs/herokuish /bin/bash
 
-<pre><code class="language-bash">docker run --rm -t -i -e USER=herokuishuser -e PORT=5000 -v $(pwd):/app gliderlabs/herokuish /bin/bash
-
-# in the container
+<span style="color:#75715e"># in the container</span>
 /build
 /start web
-</code></pre>
-
-<p>You may proceed with editing your app&rsquo;s code and run <code>/build</code> and
+</code></pre></div><p>You may proceed with editing your app&rsquo;s code and run <code>/build</code> and
 <code>/start web</code> periodically to check that it works.</p>
-
 <p>Mounting your app to <code>/app</code> is important, because if you follow the
 herokuish <a href="https://github.com/gliderlabs/herokuish">README</a> you&rsquo;ll get something like:</p>
-
-<pre><code class="language-bash">setuidgid: fatal: unable to run gunicorn: file does not exist
-</code></pre>
-
-<p>I&rsquo;m not sure why at the time of this writing the official README
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setuidgid: fatal: unable to run gunicorn: file does not exist
+</code></pre></div><p>I&rsquo;m not sure why at the time of this writing the official README
 suggests to mount your code to <code>/tmp/app</code>, because Dokku is apparently
 using the <code>/app</code> directory. I&rsquo;ve spent non-trivial amount of time
 while figuring that out, and I hope it&rsquo;ll spare you that time if you

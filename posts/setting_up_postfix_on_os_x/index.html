@@ -9,7 +9,7 @@ Here&rsquo;s why you may want to use postfix on OS X:
  if you are managing an OS X server (like in a build farm) and want to be able to send automated emails if you use mutt or other mailer like mu4e and want a persistent outgoing mail queue that works offline to write and debug scripts that use default system mailer  First thing you need to know about postfix in OS X is that it is already set up and running!">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.57.2" />
+        <meta name="generator" content="Hugo 0.65.3" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -116,9 +116,7 @@ if (!doNotTrack) {
 how to set up postfix on OS X which recommend strange things, like
 disabling System Integrity Protection. I&rsquo;ll show you how it can be
 achieved easily without any ugly hacks.</p>
-
 <p>Here&rsquo;s why you may want to use postfix on OS X:</p>
-
 <ul>
 <li>if you are managing an OS X server (like in a build farm) and want
 to be able to send automated emails</li>
@@ -126,7 +124,6 @@ to be able to send automated emails</li>
 outgoing mail queue that works offline</li>
 <li>to write and debug scripts that use default system mailer</li>
 </ul>
-
 <p>First thing you need to know about postfix in OS X is that it is
 already set up and running! If you open
 <code>/System/Library/LaunchDaemons/com.apple.postfix.master.plist</code> in
@@ -135,7 +132,6 @@ your favorite editor, you can see that it is set up to restart every
 60 seconds and then exits to be automatically respawned by
 launchd. This means that you don&rsquo;t ever need to start or restart it
 yourself after you edit the configuration.</p>
-
 <p>What confuses many people is that the Apple-flavored postfix doesn&rsquo;t
 write logs into the places you expect it to (/var/log). This is
 because Apple rewrites some unix tools to use their own logging
@@ -144,29 +140,20 @@ filter through those logs. Theoretically you could do it with the
 tool called &ldquo;Console&rdquo;, but I didn&rsquo;t have much luck with it. Instead
 I was successfully debugging problems with email delivery using this
 command in the terminal:</p>
-
-<pre><code class="language-bash">log stream --predicate '(process == &quot;smtpd&quot;) || (process == &quot;smtp&quot;) || (process == &quot;master&quot;)' --info
-</code></pre>
-
-<p>Also, when you get to actually configuring postfix, you absolutely
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">log stream --predicate <span style="color:#e6db74">&#39;(process == &#34;smtpd&#34;) || (process == &#34;smtp&#34;) || (process == &#34;master&#34;)&#39;</span> --info
+</code></pre></div><p>Also, when you get to actually configuring postfix, you absolutely
 must make sure that your <code>/etc/postfix/main.cf</code> contains at least
 the following:</p>
-
-<pre><code class="language-in">mail_owner=_postfix
+<pre><code class="language-in" data-lang="in">mail_owner=_postfix
 setgid_group=_postdrop
 myhostname=localhost.localdomain
 compatibility_level = 2
-</code></pre>
-
-<p>The <code>mail_owner</code> and <code>setgid_group</code> must be like that because Apple
+</code></pre><p>The <code>mail_owner</code> and <code>setgid_group</code> must be like that because Apple
 has a bit different security model than regular unix.</p>
-
 <p>The <code>myhostname</code> can be arbitrary, but it must be a
 fully-qualified domain name (with the domain part).</p>
-
 <p>Without setting <code>compatibility_level</code> to 2 I just failed to make it
 work.</p>
-
 <p>From here, you can proceed to configure postfix in any way you want.</p>
 
 </div>
