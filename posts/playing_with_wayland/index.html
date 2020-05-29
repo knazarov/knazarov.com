@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Playing with wayland &middot; Konstantin Nazarov</title>
+        <meta name="description" content="Wayland has been in development since 2008. I remember the initial hype around it: it was meant to be a better Xorg replacement in every aspect: from input management to rendering and code simplicity.
+Fast forward 11 years, and it still is far from completion. Many apps lack support for anything except X, and Nvidia refuses to adopt GBM API, which means their drivers are not supported.
+My previous attempt to use Wayland was almost 6 months ago, when I got myself a Linux laptop.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.65.3" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://knazarov.com/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+    </head>
+    <body>
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-116272877-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Konstantin Nazarov" href="https://knazarov.com/">Konstantin Nazarov</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://knazarov.com/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/racktear/" rel="me">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/knazarov/" rel="me">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/knazarov/" rel="me">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" title="Email" href="mailto:mail@knazarov.com">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Home" href="/posts">Home</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Posts" href="/posts/">Posts</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Projects" href="/pages/projects/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Contact" href="/pages/contact/">Contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="About" href="/pages/about/">About</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title">Playing with wayland</h1>
+    
+</header>
+
+        <div class="post-content clearfix">
+    
+
+    <p>Wayland has been in development since 2008. I remember the initial
+hype around it: it was meant to be a better Xorg replacement in every
+aspect: from input management to rendering and code simplicity.</p>
+<p>Fast forward 11 years, and it still is far from completion. Many apps
+lack support for anything except X, and Nvidia refuses to adopt GBM
+API, which means their drivers are not supported.</p>
+<p>My previous attempt to use Wayland was almost 6 months ago, when I got
+myself a Linux laptop. Fortunately, it has Intel GPU, so I thought
+after all that time I won&rsquo;t have many problems. I installed the latest
+Ubuntu and gave it a try. The results were disappointing: scrolling
+was janky (especially in XWayland), and there were occasional but very
+noticeable freezes and artifacts. After a few hours of usage, I just
+gave it up.</p>
+<p>A week ago, I decided to give it another round with Ubuntu
+20.04. Contrary to what I expected, I didn&rsquo;t find <!-- raw HTML omitted -->any<!-- raw HTML omitted --> problems right
+away. After a few minutes of dragging windows around and clicking here
+and there in Firefox, I decided to give it a more thorough stress
+test. I tried to plug/unplug an external 4k thunderbolt monitor a few
+times, then played around with opening and closing notebook lid. It
+all worked correctly and switched outputs as I expected. Plugging and
+unplugging input devices didn&rsquo;t cause any problems either.</p>
+<p>Then I started experimenting with Firefox. I knew that Mozilla were
+taking Wayland seriously, and already ported their browser. In fact,
+the default Firefox supports Wayland out of the box. After setting
+MOZ_ENABLE_WAYLAND=1 in my session I was able to get it running
+natively.</p>
+<p>In addition to just supporting Wayland, I heard that Firefox now can
+support hardware acceleration when decoding h264 videos (for example,
+in YouTube). This didn&rsquo;t work under Xorg, because it was hard to get a
+real hardware context inside the browser process. But since Wayland is
+essentially a buffer manager with direct OpenGL rendering support, the
+problem became solvable. I flipped a few options in about:config,
+installed the &ldquo;h24ify&rdquo; plugin (since VP8 codec acceleration that is
+used by default in YouTube is only being implemented), and tested it
+on a few YouTube videos. The result was very pleasant: CPU utilization
+dropped to below 10% of one of my CPU cores. On Xorg it was closer to
+30%.</p>
+<p>When I was satisfied with regular apps, I decided to dive into some
+geekery. I knew that Xorg had tiling window managers for ages, but
+they were very tightly coupled to X API, so I doubted they could be
+ported. After a bit of googling, I&rsquo;ve found <a href="https://swaywm.org/">Sway WM</a> which claimed full
+compatibility with i3, while being native to Wayland.</p>
+<p>To be honest, I was skeptical at first, because regular tiling window
+managers are relatively simple, making use of very stable and abundant
+Xorg APIs. On the other hand, in Wayland a window manager has to
+implement a lot of stuff that X WMs take for granted.</p>
+<p>And again, I was very pleasantly surprised that it just worked out of
+the box. Looks like the creators of Sway put a tremendous effort to
+get it to this state.</p>
+<p>It unites everything I used to set in a dozen config files into just
+one.</p>
+<p>Here&rsquo;s for example a configuration for dynamic multi-monitor support:</p>
+<pre><code class="language-nil" data-lang="nil"># configure display resolution
+output eDP-1 resolution 3840x2160 position 0 0
+output DP-2 resolution 3840x2160 position 3840 0
+
+set $laptop eDP-1
+
+# turn off internal display when the lid is closed
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+</code></pre><p>Here&rsquo;s my input configuration:</p>
+<pre><code class="language-nil" data-lang="nil"># I like reverse scrolling the way it's implemented in OS X
+input type:touchpad {
+ natural_scroll enabled
+ scroll_factor 0.5
+}
+
+# Keyboard layout switching and tweaks
+input &quot;1:1:AT_Translated_Set_2_keyboard&quot; {
+    xkb_layout &quot;us,ru&quot;
+    xkb_options &quot;grp:alt_space_toggle,altwin:swap_lalt_lwin,ctrl:nocaps&quot;
+}
+</code></pre><p>There are other minor things like tuning hotkeys to your liking and
+tuning sleep/screen lock, but I won&rsquo;t bother you with details.</p>
+<p>To conclude all this, Wayland is definitely ready for tiling WM fans,
+and it is stable enough to finally give it a serious try.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Playing%20with%20wayland&url=https%3a%2f%2fknazarov.com%2fposts%2fplaying_with_wayland%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fknazarov.com%2fposts%2fplaying_with_wayland%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+        
+            <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&title=Playing%20with%20wayland&url=https%3a%2f%2fknazarov.com%2fposts%2fplaying_with_wayland%2f&summary="
+               onclick="window.open(this.href, 'linkedin-share', 'width=554,height=481');return false;">
+               <i class="fa fa-linkedin"></i>
+               <span class="hidden">LinkedIn</span>
+            </a>
+        
+    </div>
+</footer>
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Konstantin Nazarov" href="https://knazarov.com/">Konstantin Nazarov</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2020 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://knazarov.com/js/jquery-1.11.3.min.js"></script>
+        <script src="https://knazarov.com/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://knazarov.com/js/scripts.js"></script>
+    </body>
+</html>
+
