@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Konstantin Nazarov</copyright>
-    <lastBuildDate>Fri, 29 May 2020 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://knazarov.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Zetteklasten: associative thought</title>
+      <link>https://knazarov.com/posts/zettelkasten_associative_thought/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0300</pubDate>
+      
+      <guid>https://knazarov.com/posts/zettelkasten_associative_thought/</guid>
+      <description>Zettelkasten is a knowledge management system invented by Niklas Luhmann, a German sociologist.
+It is based on an idea that when you need to produce meaningful work, it is likely too late to start collecting input. Say, writing an article or an assignment. If you start with an idea and then try to work through sources of information as your idea develops, you put yourself under stress: it is very hard to think one step at a time in an area where you don&amp;rsquo;t have expertise.</description>
+    </item>
     
     <item>
       <title>Playing with wayland</title>
