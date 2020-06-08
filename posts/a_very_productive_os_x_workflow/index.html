@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>A very productive OSX workflow &middot; Konstantin Nazarov</title>
+        <meta name="description" content="I often work from my MacBook, with an external display. But the default overlapping window management is not very convenient: you either have to switch windows with Cmd-Tab or maximize windows and swipe between them. This doesn&rsquo;t work well if you have more than a few open apps at the same time: you need to store context about where that window was in your head.
+I have tried to replicate Linux tiling window managers on a Mac.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.65.3" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://knazarov.com/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+    </head>
+    <body>
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-116272877-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Konstantin Nazarov" href="https://knazarov.com/">Konstantin Nazarov</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://knazarov.com/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/racktear/" rel="me">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/knazarov/" rel="me">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/knazarov/" rel="me">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" title="Email" href="mailto:mail@knazarov.com">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Home" href="/posts">Home</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Posts" href="/posts/">Posts</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Projects" href="/pages/projects/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="Contact" href="/pages/contact/">Contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="About" href="/pages/about/">About</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container">
+        <header class="post-header">
+    <h1 class="post-title">A very productive OSX workflow</h1>
+    
+</header>
+
+        <div class="post-content clearfix">
+    
+
+    <p>I often work from my MacBook, with an external display. But the
+default overlapping window management is not very convenient: you
+either have to switch windows with Cmd-Tab or maximize windows and
+swipe between them. This doesn&rsquo;t work well if you have more than a few
+open apps at the same time: you need to store context about where that
+window was in your head.</p>
+<p>I have tried to replicate Linux tiling window managers on a Mac. The
+good thing about a tiling window manager is that individual windows
+don&rsquo;t overlap and are usually grouped on a separate &ldquo;workspace&rdquo; that
+can be reached with a single shortcut (usually something like
+Cmd+1..9). It is then possible to associate every such shortcut with
+an app or a group of apps. In my case, for example:</p>
+<ul>
+<li>Workspace 1: Web browser</li>
+<li>Workspace 2: Text editor/IDE</li>
+<li>Workspace 3: Terminals</li>
+<li>Workspace 4: File management</li>
+<li>Workspace 5: Chats</li>
+<li>Workspace 6: Calendar</li>
+<li>Workspace 7: Email</li>
+<li>Workspace 8: Misc</li>
+<li>Workspace 9: Music</li>
+</ul>
+<p>I&rsquo;ve spent so much time working like this, that it has etched itself
+deeply into my reflexes.</p>
+<p>Unfortunately, the real tiling window management is impossible on a
+Mac. The OS just doesn&rsquo;t let other software to control windows well
+enough to make the experience flawless. All existing software calling
+itself &ldquo;tiling WMs for OS X&rdquo; is buggy and janky.</p>
+<p>So, instead what I would like to offer you is a way to achieve a
+convenient tiling-like workflow without any additional software, using
+only what&rsquo;s available by default.</p>
+<h2 id="don-t-run-any-apps-in-fullscreen-mode">Don&rsquo;t run any apps in fullscreen mode</h2>
+<p>Unfortunately, it&rsquo;s impossible to assign a shortcut to a window that&rsquo;s
+been put to fullscreen mode, only to &ldquo;workspaces&rdquo;. This is because
+doing so creates a &ldquo;dynamic&rdquo; workspace that is not listed in settings.
+Instead, just maximize windows by double-clicking on their
+titlebars. This will still keep the titlebar visible, but you&rsquo;ll have
+to pay this price for convenience.</p>
+<h2 id="auto-hide-what-s-possible">Auto-hide what&rsquo;s possible</h2>
+<p>Go to Settings-&gt;General and enable &ldquo;Automatically hide and show the
+menu bar&rdquo;. Then go to Settings-&gt;Dock and enable &ldquo;Automatically hide
+and show dock&rdquo;, and also set the dock position on the screen to
+&ldquo;Left&rdquo;.</p>
+<p>Doing this will save you some space, since you won&rsquo;t be using
+full-screen app mode.</p>
+<h2 id="change-primary-screen-to-external-monitor">Change primary screen to external monitor</h2>
+<p>If you work on a MacBook and attach it to an external monitor, working
+in dual-screen mode (as I do), you may want to make the external
+monitor &ldquo;primary&rdquo;. This is very convenient, because OS X will migrate
+all open apps to your primary display when it&rsquo;s attached, and then
+migrate them back to your laptop screen in exactly the same
+configuration/layout when you detach it. What&rsquo;s most important is that
+this will keep windows on the same workspaces.</p>
+<p>To do this, you need to go to Settings-&gt;Displays-&gt;Arrangement and drag
+the white stripe representing the menu bar from your laptop screen to
+your external screen. I know, it doesn&rsquo;t make sense, but this actually
+makes your external monitor primary!</p>
+<h2 id="assign-individual-shortcuts-to-each-workspace">Assign individual shortcuts to each workspace</h2>
+<p>First, do a three-finger swipe up on a touchbar and create 9
+workspaces. Then go to Settings-&gt;Keyboard-&gt;Shortcuts, pick &ldquo;Mission
+Control&rdquo; from the list on the left, and on the right, assign shortcuts
+to actions &ldquo;Switch to Desktop N&rdquo;. I recommend Cmd-1..9, since it&rsquo;s
+very natural to use.</p>
+<p>Check that it works as expected by switching desktops a few times with
+these shortcuts.</p>
+<h2 id="enjoy">Enjoy</h2>
+<p>If you spend some time remembering associations between applications
+and workspace numbers, I&rsquo;m sure you&rsquo;ll find it far more convenient and
+faster than your usual window switching habits. At least for me, it
+replicates around 80% of what I like about tiling window managers.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=A%20very%20productive%20OSX%20workflow&url=https%3a%2f%2fknazarov.com%2fposts%2fa_very_productive_os_x_workflow%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fknazarov.com%2fposts%2fa_very_productive_os_x_workflow%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+        
+            <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&title=A%20very%20productive%20OSX%20workflow&url=https%3a%2f%2fknazarov.com%2fposts%2fa_very_productive_os_x_workflow%2f&summary="
+               onclick="window.open(this.href, 'linkedin-share', 'width=554,height=481');return false;">
+               <i class="fa fa-linkedin"></i>
+               <span class="hidden">LinkedIn</span>
+            </a>
+        
+    </div>
+</footer>
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Konstantin Nazarov" href="https://knazarov.com/">Konstantin Nazarov</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2020 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://knazarov.com/js/jquery-1.11.3.min.js"></script>
+        <script src="https://knazarov.com/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://knazarov.com/js/scripts.js"></script>
+    </body>
+</html>
+

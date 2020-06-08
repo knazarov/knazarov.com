@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Konstantin Nazarov</copyright>
-    <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2020 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://knazarov.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A very productive OSX workflow</title>
+      <link>https://knazarov.com/posts/a_very_productive_os_x_workflow/</link>
+      <pubDate>Tue, 09 Jun 2020 00:00:00 +0300</pubDate>
+      
+      <guid>https://knazarov.com/posts/a_very_productive_os_x_workflow/</guid>
+      <description>I often work from my MacBook, with an external display. But the default overlapping window management is not very convenient: you either have to switch windows with Cmd-Tab or maximize windows and swipe between them. This doesn&amp;rsquo;t work well if you have more than a few open apps at the same time: you need to store context about where that window was in your head.
+I have tried to replicate Linux tiling window managers on a Mac.</description>
+    </item>
     
     <item>
       <title>Zetteklasten: associative thought</title>
